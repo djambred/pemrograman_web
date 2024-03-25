@@ -1,8 +1,8 @@
 <html>
     <head>
         <div class = "topnavbar">
-            <a href="index.html">Home</a>
-            <a class="active" href="profiles.html">Profiles</a>
+            <a class="active" href="index.html">Home</a>
+            <a href="profiles.html">Profiles</a>
         </div>
         <style>
             .topnavbar{
@@ -36,12 +36,34 @@
                 margin: 20px;
                 padding: 20px;
             }
+
+            .body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                margin: 0;
+            }
+
+            .content {
+                justify-content: center;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
         </style>
     </head>
 
     <body>
-        <source media="(min-width: 450px)" srcset="lono.jpg">
-        <img src="lono.jpg" alt="Lono">
-        <p>This is Me</p>
+        <div class="content">
+            <picture>
+                <source media="(min-width: 450px)" srcset="lono.jpg">
+                <img src="lono.jpg" alt="Lono">
+                <p>This is Me</p>
+            </picture>    
+        </div>
     </body>
 </html>
