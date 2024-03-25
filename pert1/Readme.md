@@ -12,4 +12,3 @@ adalah bahasa standar/pedoman yang dirancang untuk ditampilkan dalam web browser
 - merupakan metadata for document
 ### body
 - merupakan body dari document
-### 
