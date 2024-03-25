@@ -47,12 +47,14 @@
             }
 
             .content {
-                justify-content: center;
+                text-align: center;
             }
 
             img {
                 max-width: 100%;
                 height: auto;
+                display: block;
+                margin: 0 auto;
             }
         </style>
     </head>
@@ -60,7 +62,7 @@
     <body>
         <div class="content">
             <picture>
-                <source media="(min-width: 450px)" srcset="lono.jpg">
+                <source media="(min-width: 650px)" srcset="lono.jpg">
                 <img src="lono.jpg" alt="Lono">
             </picture>    
             <p>This is Me</p>
