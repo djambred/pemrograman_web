@@ -125,6 +125,23 @@ $router->group(['prefix' => 'api/v1/testing'], function() use ($router){
 });
 ```
 
+- selanjutnya didalam model 
+
+```
+protected $connection = 'mysql';
+protected $fillable = [
+    'username', 'password'
+];
+```
+
+- selanjutnya dalam controller
+
+```
+public function index(){
+    $query = DB::connection('mysql')->table('users')->get();
+    return response()->json($query, 200);
+}
+```
 
 
 
