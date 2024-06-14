@@ -62,7 +62,43 @@ mv .env.example .env
 php artisan key:generate
 ```
 
+- setelah itu hapus file model User.php
 
+```
+rm -rf src/app/Model/User.php
+```
+
+- setelah itu create model, controller, migration dan seeder;
+
+```
+php artisan make:model User -mcfs --resource
+```
+
+- tambahkan didalam migrationnya 
+```
+$table->id();
+$table->string('username');
+$table->string('password');
+$table->timestamp();
+```
+
+- tambahkan didalam seedernya
+```
+public function run() {
+    $timestamp = \Carbon\Carbon::now()->toDateTimeString();
+    DB::table('users')->insert([
+        'username' => 'client';
+        'password' => 'password';
+        'created_at' => $timestamp;
+        'update_at' => $timestamp;
+    ]);
+}
+```
+
+- setelah itu lakukan 
+```
+php artisan migrate
+```
 
 
 	
