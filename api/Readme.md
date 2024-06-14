@@ -1,6 +1,8 @@
 - Bukalah terminal dan bikin folder baru 
 di tempat kalian menyimpan data perkuliahan
 
+- jangan lupa tambahkan .gitignore agar DB tidak masuk ke dalam GIT
+
 - setelah itu buatlah folder dengan nama api
 ```
 https://github.com/djambred/pemrograman_web/tree/main/api
@@ -122,6 +124,8 @@ $router->group(['prefix' => 'api/v1/testing'], function() use ($router){
 	$router->put('/{id}', ['uses' => 'UserController@update']);
 });
 ```
+
+
 
 
 
