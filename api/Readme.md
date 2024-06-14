@@ -89,10 +89,10 @@ $table->timestamp();
 public function run() {
     $timestamp = \Carbon\Carbon::now()->toDateTimeString();
     DB::table('users')->insert([
-        'username' => 'client';
-        'password' => 'password';
-        'created_at' => $timestamp;
-        'update_at' => $timestamp;
+        'username' => 'client',
+        'password' => 'password',
+        'created_at' => $timestamp,
+        'updated_at' => $timestamp,
     ]);
 }
 ```
@@ -100,7 +100,7 @@ public function run() {
 
 ```
 $this->call([
-    UserSeeder:class,
+    UserSeeder::class,
 ]);
 ```
 

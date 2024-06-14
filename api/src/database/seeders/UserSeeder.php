@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UserSeeder extends Seeder
 {
@@ -14,10 +16,10 @@ class UserSeeder extends Seeder
     {
         $timestamp = \Carbon\Carbon::now()->toDateTimeString();
             DB::table('users')->insert([
-                'username' => 'client';
-                'password' => 'password';
-                'created_at' => $timestamp;
-                'update_at' => $timestamp;
+                'username' => 'client',
+                'password' => 'password',
+                'created_at' => $timestamp,
+                'update_at' => $timestamp
             ]);
     }
 }
