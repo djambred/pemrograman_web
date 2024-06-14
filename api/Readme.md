@@ -143,6 +143,12 @@ public function index(){
 }
 ```
 
+- jangan lupa
+
+```
+chmod 777 -R storage/*
+```
+
 
 
 
