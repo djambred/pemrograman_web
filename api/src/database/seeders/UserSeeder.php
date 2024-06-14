@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
                 'username' => 'client',
                 'password' => 'password',
                 'created_at' => $timestamp,
-                'update_at' => $timestamp
+                'updated_at' => $timestamp
             ]);
     }
 }
