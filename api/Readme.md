@@ -94,11 +94,34 @@ public function run() {
     ]);
 }
 ```
+- di file UserSeeder
+
+```
+$this->call([
+    UserSeeder:class,
+]);
+```
 
 - setelah itu lakukan 
 ```
-php artisan migrate
+php artisan migrate:fresh --seed
+```
+
+- setelah itu masuk ke dalam routing didalam folder
+```
+src/route/web.php
+```
+
+- bikin routing ke user tadi
+```
+$router->group(['prefix' => 'api/v1/testing'], function() use ($router){
+    $router->get('/', ['uses' => 'UserController@index']);
+	$router->post('/', ['uses' => 'UserController@create ']);
+	$router->get('/{id}', ['uses' => 'UserController@show']);
+	$router->delete('/{id}', ['uses' => 'UserController@destroy']);
+	$router->put('/{id}', ['uses' => 'UserController@update']);
+});
 ```
 
 
-	
+
