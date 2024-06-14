@@ -1,0 +1,18 @@
+@startuml
+
+actor user
+
+participant "Website" as W
+participant "Admin" as A
+participant "Kasir" as K
+participant "Chief" as C
+participant "Waiters" as wt
+
+user --> W: Melakukan Order Via Website dengan mengisi formulir
+W --> A: Melakukan Verifikasi Order
+A --> K: Melakukan Verifikasi Pembayaran
+W --> C: Melakukan Persiapan Masak
+C --> wt: Menyampaikan Pesanan Telah Selesai
+wt --> user
+
+@enduml
