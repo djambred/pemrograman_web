@@ -67,7 +67,7 @@ php artisan key:generate
 - setelah itu hapus file model User.php
 
 ```
-rm -rf src/app/Model/User.php
+rm -rf app/Models/User.php
 ```
 
 - setelah itu create model, controller, migration dan seeder;
