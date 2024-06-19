@@ -158,6 +158,7 @@ selanjutnya
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
 ]);
+$app->register(App\Providers\AuthServiceProvider::class);
 ```
 set ke route aktifkan middleware
 ```
