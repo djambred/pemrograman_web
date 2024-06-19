@@ -175,23 +175,31 @@ dengan membuat seperti ini
 public function handle($request, Closure $next, $guard = null)
     {
         if ($this->auth->guard($guard)->guest()) {
-            if($request->has('password')){
-                $token = $request->header('Authorization')->exist();
-                $check_token = DB::connection('mysql')->table('users')->where('password', $token)->first();
+            if($request->header('password')) {
+                $token = $request->header('password');
+                if ($token) {
+                    $check_token = DB::connection('mysql')
+                        ->table('users')
+                        ->where('password', $token)
+                        ->first();
+                        // echo($check_token);
 
-                if ($check_token == null){
-                    $res['success'] = false;
-                    $res['message'] = 'Permission Not Allowed';
-
-                    return response($res);
-                }
-                else{
+                    if ($check_token === null) {
+                        $res['success'] = false;
+                        $res['message'] = 'Permission Not Allowed';
+                        return response()->json($res, 403);
+                    }
+                } else {
                     $res['success'] = false;
                     $res['message'] = 'Not Authorized';
-                    return respose($res);
+                    return response()->json($res, 401);
                 }
+            } else {
+                //return response($request->header('password'), 401);
+                $res['success'] = false;
+                $res['message'] = 'Not Authorized';
+                return response()->json($res, 401);
             }
-            //return response('Unauthorized.', 401);
         }
 
         return $next($request);
@@ -203,18 +211,43 @@ php artisan make:model Product -mfcs --resource
 ```
 setup migrate
 ```
+Schema::create('products', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
 ```
 setup seeder
 ```
+$timestamp = \Carbon\Carbon::now()->toDateTimeString();
+            DB::table('users')->insert([
+                'username' => 'client',
+                //'password' => Hash::make('password'),
+                'password' => 'password',
+                'created_at' => $timestamp,
+                'updated_at' => $timestamp
+            ]);
 ```
 setup controller
 ```
+public function index()
+    {
+        $product = DB::connection('mysql')->table('products')->get();
+        return response()->json($product);
+    }
 ```
 setup model
 ```
+    protected $connection = 'mysql';
+    protected $fillable = [
+        'name'
+    ];
 ```
 setup route
 ```
+$router->group(['prefix' => 'api/v1/product','middleware'=>'auth'], function() use ($router){
+    $router->get('/', ['uses' => 'ProductController@index']);
+});
 ```
 
 
