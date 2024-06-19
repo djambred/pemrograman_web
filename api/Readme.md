@@ -197,6 +197,26 @@ public function handle($request, Closure $next, $guard = null)
         return $next($request);
     }
 ```
+setelah itu buat model baru
+```
+php artisan make:model Product -mfcs --resource
+```
+setup migrate
+```
+```
+setup seeder
+```
+```
+setup controller
+```
+```
+setup model
+```
+```
+setup route
+```
+```
+
 
 
 

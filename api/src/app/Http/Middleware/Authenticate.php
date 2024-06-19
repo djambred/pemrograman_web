@@ -34,26 +34,35 @@ class Authenticate
      * @param  string|null  $guard
      * @return mixed
      */
+
     public function handle($request, Closure $next, $guard = null)
     {
         if ($this->auth->guard($guard)->guest()) {
-            if($request->has('password')){
-                $token = $request->header('Authorization')->exist();
-                $check_token = DB::connection('mysql')->table('users')->where('password', $token)->first();
+            if($request->header('password')) {
+                $token = $request->header('password');
+                if ($token) {
+                    $check_token = DB::connection('mysql')
+                        ->table('users')
+                        ->where('password', $token)
+                        ->first();
+                        // echo($check_token);
 
-                if ($check_token == null){
-                    $res['success'] = false;
-                    $res['message'] = 'Permission Not Allowed';
-
-                    return response($res);
-                }
-                else{
+                    if ($check_token === null) {
+                        $res['success'] = false;
+                        $res['message'] = 'Permission Not Allowed';
+                        return response()->json($res, 403);
+                    }
+                } else {
                     $res['success'] = false;
                     $res['message'] = 'Not Authorized';
-                    return respose($res);
+                    return response()->json($res, 401);
                 }
+            } else {
+                //return response($request->header('password'), 401);
+                $res['success'] = false;
+                $res['message'] = 'Not Authorized';
+                return response()->json($res, 401);
             }
-            //return response('Unauthorized.', 401);
         }
 
         return $next($request);
