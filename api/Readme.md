@@ -149,6 +149,54 @@ public function index(){
 chmod 777 -R storage/*
 ```
 
+- membuat middleware dan aktifkan fitur middlewarenya didalam folder 
+```
+bootsrap/app.php
+```
+selanjutnya
+```
+$app->routeMiddleware([
+    'auth' => App\Http\Middleware\Authenticate::class,
+]);
+```
+set ke route aktifkan middleware
+```
+$router->group(['prefix' => 'api/v1/testing', 'middleware'=>'auth], function() use ($router){
+    $router->get('/', ['uses' => 'UserController@index']);
+});
+```
+setelah itu setup middlewarenya di folder
+```
+app/Http/Middleware/Authenticate.php
+```
+dengan membuat seperti ini
+```
+public function handle($request, Closure $next, $guard = null)
+    {
+        if ($this->auth->guard($guard)->guest()) {
+            if($request->has('password')){
+                $token = $request->header('Authorization')->exist();
+                $check_token = DB::connection('mysql')->table('users')->where('password', $token)->first();
+
+                if ($check_token == null){
+                    $res['success'] = false;
+                    $res['message'] = 'Permission Not Allowed';
+
+                    return response($res);
+                }
+                else{
+                    $res['success'] = false;
+                    $res['message'] = 'Not Authorized';
+                    return respose($res);
+                }
+            }
+            //return response('Unauthorized.', 401);
+        }
+
+        return $next($request);
+    }
+```
+
 
 
 
