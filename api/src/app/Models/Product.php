@@ -9,6 +9,6 @@ class Product extends Model
     //
     protected $connection = 'mysql';
     protected $fillable = [
-        'name'
+        'name', 'price', 'qty'
     ];
 }

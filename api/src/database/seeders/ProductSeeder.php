@@ -17,6 +17,8 @@ class ProductSeeder extends Seeder
         $timestamp = \Carbon\Carbon::now()->toDateTimeString();
         DB::table('products')->insert([
             'name' => 'book',
+            'price' => '5000',
+            'qty' => '2',
             'created_at' => $timestamp,
             'updated_at' => $timestamp
         ]);

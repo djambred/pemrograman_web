@@ -41,10 +41,14 @@ class ProductController extends Controller
         
         $this->validate($request, [
             'name' => 'required|string',
+            'price' => 'required|string',
+            'qty' => 'required|string',
         ]);
 
         $product = [
             'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'qty' => $request->input('qty'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ];
@@ -110,6 +114,8 @@ class ProductController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string',
+            'price' => 'required|string',
+            'qty' => 'required|string',
         ]);
         $data = DB::connection('mysql')->table('products')->where('id', $id)->first();
         $responseFalse = [
@@ -121,6 +127,8 @@ class ProductController extends Controller
         } 
         $updateData = [
             'name'=>$request->input('name', $data->name),
+            'price'=>$request->input('price', $data->name),
+            'qty'=>$request->input('qty', $data->name),
             'updated_at' => Carbon::now()
         ];
         DB::connection('mysql')->table('products')->where('id', $id)->update($updateData);
