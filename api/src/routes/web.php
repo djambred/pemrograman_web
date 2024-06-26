@@ -27,4 +27,8 @@ $router->group(['prefix' => 'api/v1/testing','middleware'=>'auth'], function() u
 
 $router->group(['prefix' => 'api/v1/product','middleware'=>'auth'], function() use ($router){
     $router->get('/', ['uses' => 'ProductController@index']);
+    $router->post('/', ['uses' => 'ProductController@store']);
+    $router->get('/{id}', ['uses' => 'ProductController@show']);
+    $router->delete('/{id}', ['uses' => 'ProductController@destroy']);
+    $router->put('/{id}', ['uses' => 'ProductController@update']);
 });

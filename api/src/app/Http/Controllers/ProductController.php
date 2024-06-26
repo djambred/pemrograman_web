@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+Use \Carbon\Carbon;
 
 class ProductController extends Controller
 {
@@ -26,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -37,7 +38,27 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $this->validate($request, [
+            'name' => 'required|string',
+        ]);
+
+        $product = [
+            'name' => $request->input('name'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ];
+
+        $id = DB::connection('mysql')->table('products')->insertGetId($product);
+        $data = DB::connection('mysql')->table('products')->where('id', $id)->first();
+
+        $response = [
+            'success' => True,
+            'message' => 'Product Created With Name : ' . $data->name,
+            'product' => $data
+        ];
+
+        return response()->json($response, 201);
     }
 
     /**
@@ -46,9 +67,25 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $data = DB::connection('mysql')->table('products')->where('id', $id)->first();
+        $responseTrue = [
+            'success' => True,
+            'message' => 'Product Founded',
+            'data' => $data
+        ];
+
+        $responseFalse = [
+            'success' => False,
+            'message' => 'Product Not Found',
+        ];
+
+        if(is_null($data)){
+            return response()->json($responseFalse, 404);
+        } 
+        
+        return response()->json($responseTrue, 201);
     }
 
     /**
@@ -69,9 +106,31 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string',
+        ]);
+        $data = DB::connection('mysql')->table('products')->where('id', $id)->first();
+        $responseFalse = [
+            'success' => False,
+            'message' => 'Product Not Found',
+        ];
+        if(is_null($data)){
+            return response()->json($responseFalse, 404);
+        } 
+        $updateData = [
+            'name'=>$request->input('name', $data->name),
+            'updated_at' => Carbon::now()
+        ];
+        DB::connection('mysql')->table('products')->where('id', $id)->update($updateData);
+        $dataUpdate = DB::connection('mysql')->table('products')->where('id', $id)->first();
+        $responseTrue = [
+            'success' => True,
+            'message' => 'Product Updated',
+            'data' => $dataUpdate
+        ];
+        return response()->json($responseTrue, 201);
     }
 
     /**
@@ -80,8 +139,24 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        $data = DB::connection('mysql')->table('products')->where('id', $id)->first();
+        $responseTrue = [
+            'success' => True,
+            'message' => 'Product Deleted',
+        ];
+
+        $responseFalse = [
+            'success' => False,
+            'message' => 'Product Not Found',
+        ];
+
+        if(is_null($data)){
+            return response()->json($responseFalse, 404);
+        } 
+        
+        DB::connection('mysql')->table('products')->where('id', $id)->delete();
+        return response()->json($responseTrue, 201);
     }
 }
