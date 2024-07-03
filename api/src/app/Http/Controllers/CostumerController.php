@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Costumer;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CostumerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +14,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::get();
+        $data = Costumer::get();
         if(!$data) {
             return response()->json(
                 [
                     'success' => false,
-                    'message' => 'Produt Not Found'
+                    'message' => 'Customers Not Found'
                 ]
                 );
             } else {
@@ -57,10 +57,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Costumer  $costumer
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Costumer $costumer)
     {
         //
     }
@@ -68,10 +68,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Costumer  $costumer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Costumer $costumer)
     {
         //
     }
@@ -80,10 +80,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Costumer  $costumer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Costumer $costumer)
     {
         //
     }
@@ -91,10 +91,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Costumer  $costumer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Costumer $costumer)
     {
         //
     }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,23 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::get();
-        if(!$data) {
-            return response()->json(
-                [
-                    'success' => false,
-                    'message' => 'Produt Not Found'
-                ]
-                );
-            } else {
-             return response()->json(
-                [
-                    'success' => true,
-                    'message' => 'Success Retrive Data',
-                    'data' => $data
-                ]
-             ) ; 
-        }
+        //
     }
 
     /**
@@ -57,10 +41,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Payment $payment)
     {
         //
     }
@@ -68,10 +52,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Payment $payment)
     {
         //
     }
@@ -80,10 +64,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Payment $payment)
     {
         //
     }
@@ -91,10 +75,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Payment  $payment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Payment $payment)
     {
         //
     }

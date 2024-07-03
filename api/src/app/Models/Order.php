@@ -4,12 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Order extends Model
 {
     protected $connection = 'mysql';
-    protected $table = 'products';
+    protected $table = 'orders';
+
+    public function costumer(){
+        return $this->belongTo('App\Models\Costumer');
+    }
 
     public function order_item(){
         return $this->hasMany('App\Models\OrderItem');
     }
+
 }
