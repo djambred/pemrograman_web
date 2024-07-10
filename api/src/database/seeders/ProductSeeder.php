@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +14,7 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        $timestamp = \Carbon\Carbon::now()->toDateTimeString();
+        $timestamp = Carbon::now()->toDateTimeString();
         DB::table('products')->insert([
             'name' => 'Book',
             'price' => 5000,

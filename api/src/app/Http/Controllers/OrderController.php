@@ -35,6 +35,7 @@ class OrderController extends Controller
         }))->get();
         if(!$data) {
             return response()->json([
+                "success" => false,
                 "message" => "Data Not Found"
             ]);
         }
@@ -42,9 +43,11 @@ class OrderController extends Controller
         Log::info('Showing all order');
 
         return response()->json([
+            "success" => true,
             "message" => "Success retrieve data",
-            "status" => true,
-            "data" => $data
+            "data" => [
+                "attributes" => $data
+            ]
         ]);
     }
 

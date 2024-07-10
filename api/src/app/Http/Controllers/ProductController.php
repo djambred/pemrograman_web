@@ -35,6 +35,7 @@ class ProductController extends Controller
         $data = Product::all();
         if(!$data) {
             return response()->json([
+                "success" => false,
                 "message" => "Data Not Found"
             ]);
         }
@@ -42,8 +43,8 @@ class ProductController extends Controller
         Log::info('Showing all product');
 
         return response()->json([
+            "success" => true,
             "message" => "Success retrieve data",
-            "status" => true,
             "data" => $data
         ]);
     }
@@ -78,8 +79,8 @@ class ProductController extends Controller
         Log::info('Adding product');
 
         return response()->json([
+            "success" => true,
             "message" => "Success Added",
-            "status" => true,
             "data" => [
                 "attributes" => $data
             ]
@@ -97,6 +98,7 @@ class ProductController extends Controller
         $data = Product::find($id);
         if(!$data) {
             return response()->json([
+                "success" => false,
                 "message" => "Parameter Not Found"
             ]);
         }
@@ -104,8 +106,8 @@ class ProductController extends Controller
         Log::info('Showing product by id');
 
         return response()->json([
+            "success" => true,
             "message" => "Success retrieve data",
-            "status" => true,
             "data" => $data
         ]);
     }
@@ -132,14 +134,15 @@ class ProductController extends Controller
             Log::info('Updating product by id');
 
             return response()->json([
+                "success" => true,
                 "message" => "Success Updated",
-                "status" => true,
                 "data" => [
                     "attributes" => $data
                 ]
             ]);        
         }else {
             return response()->json([
+                "success" => false,
                 "message" => "Parameter Not Found"
             ]);
         }
@@ -172,14 +175,15 @@ class ProductController extends Controller
             Log::info('Deleting product by id');
 
             return response()->json([
+                "success" => true,
                 "message" => "Success Deleted",
-                "status" => true,
                 "data" => [
                     "attributes" => $data
                 ]
             ]);   
         }else {
             return response()->json([
+                "success" => false,
                 "message" => "Parameter Not Found"
             ]);
         }
