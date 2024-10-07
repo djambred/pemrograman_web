@@ -9,8 +9,9 @@ class OrderItem extends Model
     protected $connection = 'mysql';
     protected $table = 'order_items';
 
-    public function order(){
-        return $this->belongsTo('App\Models\Order');
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
     }
 
     public function product(){

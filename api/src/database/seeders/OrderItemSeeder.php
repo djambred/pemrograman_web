@@ -21,5 +21,13 @@ class OrderItemSeeder extends Seeder
             'created_at' => $timestamp,
             'updated_at' => $timestamp
         ]);
+
+        DB::table('order_items')->insert([
+            'order_id' => 2,
+            'product_id' => 2,
+            'quantity' => 2,
+            'created_at' => $timestamp,
+            'updated_at' => $timestamp
+        ]);
     }
 }

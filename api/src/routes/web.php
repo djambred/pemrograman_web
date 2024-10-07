@@ -17,12 +17,12 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-// $router->group(['prefix' => 'api/v1/testing'], function() use ($router){
-//     $router->get('/', ['uses' => 'UserController@index']);
+// $router->group(['prefix' => 'api/v1/user'], function() use ($router){
+//     $router->post('/', ['uses' => 'UserController@index']);
 // });
 
 $router->group(['prefix' => 'api/v1/user','middleware'=>'auth'], function() use ($router){
-    $router->get('/', ['uses' => 'UserController@index']);
+    $router->post('/', ['uses' => 'UserController@index']);
 });
 
 $router->group(['prefix' => 'api/v1/costumer','middleware'=>'auth'], function() use ($router){
@@ -35,7 +35,7 @@ $router->group(['prefix' => 'api/v1/costumer','middleware'=>'auth'], function() 
 
 $router->group(['prefix' => 'api/v1/product','middleware'=>'auth'], function() use ($router){
     $router->get('/', ['uses' => 'ProductController@index']);
-    $router->post('/', ['uses' => 'ProductController@store']);
+    $router->post('/add', ['uses' => 'ProductController@store']);
     $router->get('/{id}', ['uses' => 'ProductController@show']);
     $router->put('/{id}', ['uses' => 'ProductController@edit']);
     $router->delete('/{id}', ['uses' => 'ProductController@destroy']);
@@ -61,3 +61,13 @@ $router->group(['prefix' => 'api/v1/orderitem-join','middleware'=>'auth'], funct
     $router->get('/', ['uses' => 'OrderItemController@ShowDataJoin']);
     $router->get('/{id}', ['uses' => 'OrderItemController@showIdJoin']);
 });
+
+$router->group(['prefix' => 'api/v1/payment','middleware'=>'auth'], function() use ($router){
+    $router->get('/', 'PaymentController@index');
+    $router->get('/{id}', 'PaymentController@show');
+    $router->post('/', 'PaymentController@store');
+    $router->put('/{id}', 'PaymentController@update');
+    $router->delete('/{id}', 'PaymentController@destroy');
+    $router->post('/push', 'PaymentController@midtransPush');
+});
+

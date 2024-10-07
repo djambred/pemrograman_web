@@ -20,5 +20,12 @@ class OrderSeeder extends Seeder
             'created_at' => $timestamp,
             'updated_at' => $timestamp
         ]);
+
+        DB::table('orders')->insert([
+            'costumer_id' => '2',
+            'status' => 'pending',
+            'created_at' => $timestamp,
+            'updated_at' => $timestamp
+        ]);
     }
 }

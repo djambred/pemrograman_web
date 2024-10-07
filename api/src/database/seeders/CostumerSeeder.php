@@ -23,5 +23,14 @@ class CostumerSeeder extends Seeder
                 'created_at' => $timestamp,
                 'updated_at' => $timestamp
             ]);
+
+            DB::table('costumers')->insert([
+                'full_name' => 'Doe',
+                'username' => 'doe',
+                'email' => 'doe@email.com',
+                'phone_number' => '08123456789',
+                'created_at' => $timestamp,
+                'updated_at' => $timestamp
+            ]);
     }
 }
