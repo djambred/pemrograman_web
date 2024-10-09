@@ -29,6 +29,7 @@ class LevelingIndexResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Select::make('indicator.name')->nullable()->label('Indikator')->relationship('indicator', 'name'),
                 Forms\Components\TextInput::make('name'),
             ]);
     }
@@ -37,6 +38,7 @@ class LevelingIndexResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('indicator.name')->label('Indicator'),
                 Tables\Columns\TextColumn::make('name')->searchable(),
             ])
             ->filters([

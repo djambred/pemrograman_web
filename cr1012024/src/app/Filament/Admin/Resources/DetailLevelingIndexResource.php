@@ -5,6 +5,7 @@ namespace App\Filament\Admin\Resources;
 use App\Filament\Admin\Resources\DetailLevelingIndexResource\Pages;
 use App\Models\DetailLevelingIndex;
 use Filament\Forms;
+use Filament\Forms\Components\Builder;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -29,6 +30,7 @@ class DetailLevelingIndexResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Select::make('indicator_id')->nullable()->relationship('indicator', 'name'),
                 Forms\Components\Select::make('leveling_index_id')->nullable()->label('Leveling_index')->relationship('levelingIndex', 'name'),
                 Forms\Components\Textarea::make('detail'),
                 Forms\Components\Textarea::make('description'),
@@ -38,9 +40,12 @@ class DetailLevelingIndexResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-
-            ])
+        ->columns([
+            Tables\Columns\TextColumn::make('indicator.name')->label('Indicator'),
+            Tables\Columns\TextColumn::make('levelingIndex.name')->label('Leveling Index'),
+            Tables\Columns\TextColumn::make('detail')->label('Detail'),
+            Tables\Columns\TextColumn::make('description')->label('Description'),
+        ])
             ->filters([
 
             ])

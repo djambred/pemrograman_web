@@ -19,7 +19,7 @@ class IndicatorSeeder extends Seeder
             ['range' => [21, 31], 'domain_id' => 3],
             ['range' => [32, 47], 'domain_id' => 4],
         ];
-        
+
         // Assigning aspects
         $aspects = [
             ['range' => [1, 10], 'aspect_id' => 1],
@@ -31,7 +31,7 @@ class IndicatorSeeder extends Seeder
             ['range' => [32, 44], 'aspect_id' => 7],
             ['range' => [45, 47], 'aspect_id' => 8],
         ];
-        
+
         foreach ($indicators as $indicator) {
             for ($i = $indicator['range'][0]; $i <= $indicator['range'][1]; $i++) {
                 // Find the appropriate aspect_id for the current indicator
@@ -42,18 +42,17 @@ class IndicatorSeeder extends Seeder
                         break;
                     }
                 }
-        
+
                 Indicator::firstOrCreate(
-                    ['name' => 'Indikator ' . $i],
+                    ['name' => 'Indikator '.$i],
                     [
-                        'name' => 'Indikator ' . $i,
+                        'name' => 'Indikator '.$i,
                         'domain_id' => $indicator['domain_id'], // Assign domain dynamically
                         'aspect_id' => $aspect_id,              // Assign aspect dynamically
                     ]
                 );
             }
         }
-        
-    
+
     }
 }

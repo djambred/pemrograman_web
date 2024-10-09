@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('leveling_indices', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->foreignId('indicator_id')->nullable();
             $table->timestamps();
         });
     }

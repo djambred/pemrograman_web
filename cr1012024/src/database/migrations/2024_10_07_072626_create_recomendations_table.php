@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('recomendations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('indicator_id');
-            $table->foreignId('leveling_index_id');
-            $table->foreignId('detail_leveling_index_id');
+            $table->foreignId('indicator_id')->nullable();
+            $table->foreignId('leveling_index_id')->nullable();
+            $table->foreignId('detail_leveling_index_id')->nullable();
             $table->longText('recommend')->nullable();
             $table->timestamps();
         });

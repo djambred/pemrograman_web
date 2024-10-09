@@ -30,12 +30,12 @@ class Analyze extends Model
 
     public function leveling(): BelongsTo
     {
-        return $this->belongsTo(LevelingIndex::class, 'leveling_id');
+        return $this->belongsTo(LevelingIndex::class, 'leveling_index_id');
     }
 
     public function detailLevelingIndex(): BelongsTo
     {
-        return $this->belongsTo(DetailLevelingIndex::class, 'detaillevelingindex_id');
+        return $this->belongsTo(DetailLevelingIndex::class, 'detail_leveling_index_id');
     }
 
     public function recomendation(): BelongsTo

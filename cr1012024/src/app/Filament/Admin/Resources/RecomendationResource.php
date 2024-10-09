@@ -15,6 +15,7 @@ class RecomendationResource extends Resource
     protected static ?string $model = Recomendation::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
     protected static ?string $navigationGroup = 'Master Data';
 
     protected static ?int $navigationSort = 2;
@@ -30,7 +31,7 @@ class RecomendationResource extends Resource
             ->schema([
                 Forms\Components\Select::make('indicator_id')->nullable()->relationship('indicator', 'name'),
                 Forms\Components\Select::make('leveling_index_id')->nullable()->relationship('indexLeveling', 'name'),
-                Forms\Components\Select::make('detail_leveling_index_id')->nullable()->relationship('detailLevelingIndex', 'name'),
+                Forms\Components\Select::make('detail_leveling_index_id')->nullable()->relationship('detailLevelingIndex', 'detail'),
                 Forms\Components\Textarea::make('recommend'),
             ]);
     }
@@ -39,7 +40,10 @@ class RecomendationResource extends Resource
     {
         return $table
             ->columns([
-
+                Tables\Columns\TextColumn::make('indicator.name')->label('Indicator'),
+                Tables\Columns\TextColumn::make('indexLeveling.name')->label('Level'),
+                Tables\Columns\TextColumn::make('detailLevelingIndex.detail')->label('Detail'),
+                Tables\Columns\TextColumn::make('recommend')->searchable(),
             ])
             ->filters([
 

@@ -15,7 +15,7 @@ class IndicatorResource extends Resource
     protected static ?string $model = Indicator::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    
+
     protected static ?string $navigationGroup = 'Master Data';
 
     protected static ?int $navigationSort = 0;
@@ -46,7 +46,7 @@ class IndicatorResource extends Resource
                 Tables\Columns\TextColumn::make('domain.name')->label('Domain'),
                 Tables\Columns\TextColumn::make('aspect.name')->label('Aspect'),
                 Tables\Columns\TextColumn::make('detail')->label('Detail'),
-                Tables\Columns\TextColumn::make('description')->label('Description'),                
+                Tables\Columns\TextColumn::make('description')->label('Description'),
                 Tables\Columns\TextColumn::make('score_criteria')->label('Score Criteria'),
             ])
             ->filters([
@@ -68,7 +68,7 @@ class IndicatorResource extends Resource
             'index' => Pages\ListIndicators::route('/'),
             'create' => Pages\CreateIndicator::route('/create'),
             'edit' => Pages\EditIndicator::route('/{record}/edit'),
-        ];   
+        ];
     }
 
     // public static function sidebarCollapsibleOnDesktop(bool $value): static
@@ -76,5 +76,3 @@ class IndicatorResource extends Resource
     //     return static::setSidebarCollapsibleOnDesktop($value);
     // }
 }
-
-

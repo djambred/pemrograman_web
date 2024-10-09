@@ -19,11 +19,13 @@ class LevelingIndexSeeder extends Seeder
             'Level 4',
             'Level 5',
         ];
-        
+
         foreach ($levels as $level) {
             LevelingIndex::firstOrCreate(
                 ['name' => $level],  // Condition to check if record exists
-                ['name' => $level]   // Values to create if it doesn't exist
+                ['name' => $level,
+                 'indicator_id' => 1
+                ]   // Values to create if it doesn't exist
             );
         }
     }

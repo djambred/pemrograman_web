@@ -12,7 +12,7 @@ class DomainSeeder extends Seeder
      */
     public function run(): void
     {
-        
+
         $domain = [
             'Domain Kebijakan',
             'Domain Tata Kelola',
@@ -25,7 +25,7 @@ class DomainSeeder extends Seeder
                 ['name' => $domain], // Condition to check if record exists
                 ['name' => $domain]  // Values to create if it doesn't exist
             );
-        }   
-        
+        }
+
     }
 }

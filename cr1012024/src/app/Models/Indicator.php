@@ -27,4 +27,14 @@ class Indicator extends Model
     {
         return $this->belongsTo(Aspect::class, 'aspect_id');
     }
+
+    public function detailLevelingIndices()
+    {
+        return $this->hasMany(DetailLevelingIndex::class);
+    }
+
+    public function LevelingIndices()
+    {
+        return $this->hasMany(LevelingIndex::class);
+    }
 }

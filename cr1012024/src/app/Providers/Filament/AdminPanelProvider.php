@@ -93,8 +93,7 @@ class AdminPanelProvider extends PanelProvider
                 NavigationGroup::make()
                     ->label('Administration')
                     ->icon('heroicon-o-cog-8-tooth'),
-                
-                
+
             ])
             ->resources([
                 config('filament-logger.activity_resource'),

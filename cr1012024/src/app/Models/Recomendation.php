@@ -25,11 +25,11 @@ class Recomendation extends Model
 
     public function indexLeveling(): BelongsTo
     {
-        return $this->belongsTo(LevelingIndex::class, 'indexleveling_id');
+        return $this->belongsTo(LevelingIndex::class, 'leveling_index_id');
     }
 
     public function detailLevelingIndex(): BelongsTo
     {
-        return $this->belongsTo(DetailLevelingIndex::class, 'detaillevelingindex_id');
+        return $this->belongsTo(DetailLevelingIndex::class, 'detail_leveling_index_id');
     }
 }

@@ -23,8 +23,8 @@ class AnalyzeResource extends Resource
                 Forms\Components\Select::make('subject_id')->nullable()->relationship('subject', 'name'),
                 Forms\Components\Select::make('indicator_id')->nullable()->relationship('indicator', 'name'),
                 Forms\Components\Select::make('leveling_index_id')->nullable()->relationship('leveling', 'name'),
-                Forms\Components\Select::make('detail_leveling_index_id')->nullable()->relationship('detailLevelingIndex', 'name'),
-                Forms\Components\Select::make('recomendation_id')->nullable()->relationship('recomendation', 'name'),
+                Forms\Components\Select::make('detail_leveling_index_id')->nullable()->relationship('detailLevelingIndex', 'detail'),
+                Forms\Components\Select::make('recomendation_id')->nullable()->relationship('recomendation', 'recommend'),
                 Forms\Components\Textarea::make('note'),
             ]);
     }
@@ -33,7 +33,12 @@ class AnalyzeResource extends Resource
     {
         return $table
             ->columns([
-
+                Tables\Columns\TextColumn::make('subject.name')->label('Lokus'),
+                Tables\Columns\TextColumn::make('indicator.name')->label('Indikator'),
+                Tables\Columns\TextColumn::make('leveling.name')->label('Level'),
+                Tables\Columns\TextColumn::make('detailLevelingIndex.detail')->label('Detail Leveling Index'),
+                Tables\Columns\TextColumn::make('recomendation.recommend'),
+                Tables\Columns\TextColumn::make('note')->searchable(),
             ])
             ->filters([
 

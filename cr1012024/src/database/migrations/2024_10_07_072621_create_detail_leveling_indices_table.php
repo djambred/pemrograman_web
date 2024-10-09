@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('detail_leveling_indices', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->foreignId('indicator_id')->nullable();
             $table->foreignId('leveling_index_id');
             $table->longText('detail')->nullable();
             $table->longText('description')->nullable();
