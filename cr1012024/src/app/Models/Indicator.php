@@ -11,7 +11,7 @@ class Indicator extends Model
     use HasFactory;
 
     protected $fillable = [
-        'domain_id', 'aspect_id', 'name', 'detail', 'description', 'score_criteria',
+        'domain_id', 'aspect_id', 'name', 'other_name', 'detail', 'description', 'score_criteria',
     ];
 
     protected $casts = [
