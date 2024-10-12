@@ -94,12 +94,12 @@ class IndicatorResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->searchable(),
-                Tables\Columns\TextColumn::make('other_name')->limit(50),
-                Tables\Columns\TextColumn::make('domain.name')->label('Domain')->limit(50),
-                Tables\Columns\TextColumn::make('aspect.name')->label('Aspect')->limit(50),
-                Tables\Columns\TextColumn::make('detail')->label('Detail')->limit(50),
-                Tables\Columns\TextColumn::make('description')->label('Description')->limit(50),
-                Tables\Columns\TextColumn::make('score_criteria')->label('Score Criteria')->limit(50),
+                Tables\Columns\TextColumn::make('other_name')->wrap(),
+                Tables\Columns\TextColumn::make('domain.name')->label('Domain')->wrap(),
+                Tables\Columns\TextColumn::make('aspect.name')->label('Aspect')->wrap(),
+                Tables\Columns\TextColumn::make('detail')->label('Detail')->wrap(),
+                Tables\Columns\TextColumn::make('description')->label('Description')->wrap(),
+                Tables\Columns\TextColumn::make('score_criteria')->label('Score Criteria')->wrap(),
             ])
             ->filters([])
             ->actions([

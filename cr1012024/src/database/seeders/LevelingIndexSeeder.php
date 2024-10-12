@@ -20,13 +20,19 @@ class LevelingIndexSeeder extends Seeder
             'Level 5',
         ];
 
-        foreach ($levels as $level) {
-            LevelingIndex::firstOrCreate(
-                ['name' => $level],  // Condition to check if record exists
-                ['name' => $level,
-                 'indicator_id' => 1
-                ]   // Values to create if it doesn't exist
-            );
+        for ($indicatorId = 1; $indicatorId <= 47; $indicatorId++) {
+            foreach ($levels as $level) {
+                LevelingIndex::firstOrCreate(
+                    [
+                        'name' => $level,           // Condition to check if record exists
+                        'indicator_id' => $indicatorId  // Condition for indicator_id
+                    ], 
+                    [
+                        'name' => $level,
+                        'indicator_id' => $indicatorId   // Values to create if it doesn't exist
+                    ]
+                );
+            }
         }
     }
 }

@@ -37,4 +37,9 @@ class Indicator extends Model
     {
         return $this->hasMany(LevelingIndex::class);
     }
+
+    // public function subject()
+    // {
+    //     return $this->belongsTo(Subject::class);
+    // }
 }

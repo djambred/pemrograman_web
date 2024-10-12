@@ -41,10 +41,10 @@ class DetailLevelingIndexResource extends Resource
     {
         return $table
         ->columns([
-            Tables\Columns\TextColumn::make('indicator.name')->label('Indicator'),
-            Tables\Columns\TextColumn::make('levelingIndex.name')->label('Leveling Index'),
-            Tables\Columns\TextColumn::make('detail')->label('Detail'),
-            Tables\Columns\TextColumn::make('description')->label('Description'),
+            Tables\Columns\TextColumn::make('indicator.name')->label('Indicator')->wrap(),
+            Tables\Columns\TextColumn::make('levelingIndex.name')->label('Leveling Index')->wrap(),
+            Tables\Columns\TextColumn::make('detail')->label('Detail')->wrap(),
+            Tables\Columns\TextColumn::make('description')->label('Description')->wrap(),
         ])
             ->filters([
 

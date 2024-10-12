@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText('detail')->nullable();
             $table->longText('description')->nullable();
             $table->longText('score_criteria')->nullable();
+            $table->foreignId('subject_id')->nullable();
             $table->timestamps();
         });
     }

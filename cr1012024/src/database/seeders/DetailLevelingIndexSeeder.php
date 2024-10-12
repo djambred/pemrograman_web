@@ -150,6 +150,117 @@ indikator sesuai arah rekomendasi reviu serta
 ditetapkan 1 tahun setelah reviu dilakukan.'
                 ],
             ],
+            3 => [
+                1 => [
+                    'detail' => 'Konsep kebijakan internal terkait Manajemen Data di Instansi Pusat/Pemerintah Daerah belum atau telah tersedia.',
+                    'description' => 'Instansi Pusat/Pemerintah Daerah belum atau sudah 
+memiliki konsep kebijakan internal Manajemen Data 
+dimaksud atau masih dalam proses pengesahan. ',
+                    'criteria_evidence' => 'Draf kebijakan berupa rancangan Peraturan atau 
+rancangan Keputusan atau Surat Edaran/dokumen 
+yang berisi pengaturan/norma mengenai Manajemen 
+Data SPBE; Notulensi/catatan/laporan hasil 
+penyusunan kebijakan internal Manajemen Data SPBE; 
+bukti undangan rapat penyusunan kebijakan internal 
+Manajemen Data SPBE; dan/atau dokumentasi 
+aktivitas-aktivitas penyusunan kebijakan internal 
+Manajemen Data SPBE. '
+                ],
+                2 => [
+                    'detail' => 'Kebijakan internal Manajemen Data di Instansi 
+Pusat/Pemerintah Daerah telah ditetapkan.',
+                    'description' => 'Instansi Pusat/Pemerintah Daerah sudah memiliki 
+kebijakan internal terkait Manajemen/pengelolaan Data 
+yang telah ditetapkan.',
+                    'criteria_evidence' => 'Konteks pengaturan/norma penerapan 
+Manajemen/pengelolaan Data SPBE yang 
+menggambarkan proses pengelolaan/Manajemen Data 
+dalam dokumen kebijakan Instansi Pusat/Pemerintah 
+Daerah; '
+                ],
+                3 => [
+                    'detail' => 'Kondisi: Kebijakan internal Manajemen Data di 
+Instansi Pusat/Pemerintah Daerah tersebut hanya 
+mengatur sebagian dari rangkaian proses 
+pengelolaan arsitektur data, data induk, data referensi, basis data, kualitas data dan 
+interoperabilitas data. ',
+                    'description' => 'Instansi Pusat/Pemerintah Daerah telah memiliki 
+kebijakan internal yang mendukung pengaturan 
+Manajemen Data yang didalamnya mencakup sebagian  
+proses pengelolaan Manajemen Data.',
+                    'criteria_evidence' => 'Konteks pengaturan/norma penerapan Manajemen 
+Data SPBE yang menguraikan sebagian rangkaian 
+proses pengelolaan Manajemen Data tertuang dalam 
+dokumen kebijakan Instansi Pusat/Pemerintah Daerahonteks pengaturan/norma penerapan Manajemen 
+Data SPBE yang menguraikan sebagian rangkaian 
+proses pengelolaan Manajemen Data tertuang dalam 
+dokumen kebijakan Instansi Pusat/Pemerintah Daerah'
+                ],
+                4 => [
+                    'detail' => 'Kriteria tingkat 2 telah terpenuhi dan kebijakan 
+internal Manajemen Data di Instansi 
+Pusat/Pemerintah Daerah telah mengatur seluruh 
+rangkaian proses pengelolaan arsitektur data, data 
+induk, data referensi, basis data, kualitas data dan 
+interoperabilitas data. ',
+                    'description' => 'Instansi Pusat/Pemerintah Daerah telah memiliki 
+kebijakan internal yang mendukung pengaturan 
+Manajemen Data yang didalamnya mencakup seluruh 
+proses pengelolaan Manajemen Data.',
+                    'criteria_evidence' => 'Konteks pengaturan/norma penerapan Manajemen 
+Data SPBE yang menguraikan seluruh rangkaian proses 
+pengelolaan Manajemen Data tertuang dalam dokumen 
+kebijakan Instansi Pusat/Pemerintah Daerah; '
+                ],
+                5 => [
+                    'detail' => 'Kriteria tingkat 4 telah terpenuhi serta hasil reviu 
+dan evaluasi kebijakan internal Manajemen Data di 
+Instansi Pusat/Pemerintah Daerah telah 
+ditindaklanjuti dengan kebijakan baru. ',
+                    'description' => 'Instansi Pusat/Pemerintah Daerah telah melakukan 
+reviu yang masih berlaku (<2 tahun) dan evaluasi dan 
+menindaklanjuti hasil reviu dan/atau evaluasi atas 
+kebijakan Manajemen Data SPBE sebelumnya dengan 
+menetapkan suatu kebijakan atau turunan kebijakan 
+sebagai bentuk optimalisasi pelaksanaan kebijakan 
+Manajemen Data SPBE, sesuai dengan kebutuhan 
+Instansi Pusat/Pemerintah Daerah ataupun perubahan 
+lingkungan dan teknologi.  
+Tingkat kematangan level 5 (lima) dapat dipertahankan a) dengan melakukan reviu terhadap kebijakan 
+internal Manajemen Data; penyempurnaan  
+terhadap kebijakan internal Manajemen Data 
+sesuai hasil reviu; dan 
+b) dengan melakukan tindak lanjut atas hasil reviu 
+berupa penyempurnaan terhadap kebijakan 
+internal Manajemen Data dengan menetapkan 
+kebijakan baru dan/atau turunan kebijakan (SK, 
+SE, SOP, dan lain sebagainya), dan kebijakan 
+lainnya sesuai hasil reviu. ',
+                    'criteria_evidence' => '1) Dokumen kebijakan internal penerapan SPBE 
+Instansi Pusat/Pemerintah Daerah yang memuat 
+kebijakan Manajemen Data dan telah optimal 
+(memenuhi kriteria tingkat kematangan level 1 – 4);  
+2) Terdapat dokumentasi aktivitas 
+reviu/penyempurnaan kebijakan internal 
+Manajemen Data yang memuat rekomendasi; 
+3) Hasil evaluasi/reviu yang berisi konten 
+isu/permasalahan dan rekomendasi perbaikan yang 
+aktual ; 
+4) Bukti undangan rapat evaluasi kebijakan internal 
+Manajemen Data, dan/atau dokumentasi aktivitas
+aktivitas evaluasi kebijakan internal Manajemen 
+Data (opsional); 
+5) Dokumen formal kebijakan internal Instansi 
+Pusat/Pemerintah Daerah sebagai optimalisasi yang 
+sesuai dengan rekomendasi hasil 
+reviu/penyempurnaan; dan 
+6) Optimalisasi kebijakan dapat dipenuhi dengan 
+menetapkan turunan kebijakan (SK, SE, SOP), dan 
+kebijakan lainnya yang memuat substansi indikator 
+sesuai arah rekomendasi reviu serta ditetapkan 1 
+tahun setelah reviu dilakukan. '
+                ],
+            ],
 
         ];
 
