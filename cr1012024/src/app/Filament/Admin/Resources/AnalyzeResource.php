@@ -20,12 +20,58 @@ class AnalyzeResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('subject_id')->nullable()->relationship('subject', 'name'),
-                Forms\Components\Select::make('indicator_id')->nullable()->relationship('indicator', 'name'),
-                Forms\Components\Select::make('leveling_index_id')->nullable()->relationship('leveling', 'name'),
-                Forms\Components\Select::make('detail_leveling_index_id')->nullable()->relationship('detailLevelingIndex', 'detail'),
-                Forms\Components\Select::make('recomendation_id')->nullable()->relationship('recomendation', 'recommend'),
-                Forms\Components\Textarea::make('note'),
+                // Select for 'subject'
+                Forms\Components\Select::make('subject_id')
+                    ->label('Subject')
+                    ->relationship('subject', 'name')
+                    ->nullable(),
+
+                // Select for 'indicator'
+                Forms\Components\Select::make('indicator_id')
+                    ->label('Indicator')
+                    ->relationship('indicator', 'name')
+                    ->nullable()
+                    ->reactive(), // Mark this as reactive to trigger changes in dependent fields
+
+                // Select for 'leveling_index_id'
+                Forms\Components\Select::make('leveling_index_id')
+                    ->label('Leveling Index')
+                    ->relationship('leveling', 'name')
+                    ->nullable()
+                    ->reactive() // Mark this as reactive to trigger changes in dependent fields
+                    ->afterStateUpdated(function (callable $set) {
+                        // Reset the detail leveling index field when leveling index changes
+                        $set('detail_leveling_index_id', null);
+                    }),
+
+                // Dependent select for 'detail_leveling_index_id' based on 'indicator_id' and 'leveling_index_id'
+                Forms\Components\Select::make('detail_leveling_index_id')
+                    ->label('Detail Leveling Index')
+                    ->options(function ($get) {
+                        $indicatorId = $get('indicator_id');
+                        $levelingId = $get('leveling_index_id');
+
+                        // Return options based on both 'indicator_id' and 'leveling_index_id'
+                        if ($indicatorId && $levelingId) {
+                            return \App\Models\DetailLevelingIndex::where('indicator_id', $indicatorId)
+                                ->where('leveling_index_id', $levelingId)
+                                ->pluck('detail', 'id')
+                                ->toArray();
+                        }
+
+                        return [];
+                    })
+                    ->nullable(),
+
+                // Select for 'recomendation_id'
+                Forms\Components\Select::make('recomendation_id')
+                    ->label('Recomendation')
+                    ->relationship('recomendation', 'recommend')
+                    ->nullable(),
+
+                // Textarea for 'note'
+                Forms\Components\Textarea::make('note')
+                    ->label('Note'),
             ]);
     }
 
