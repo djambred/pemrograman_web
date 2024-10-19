@@ -12,9 +12,18 @@ class SubjectSeeder extends Seeder
      */
     public function run(): void
     {
+        $data = [
+            'Kabupaten Maros',
+            'Kabupaten Bulukumba',
+            'Kabupaten Sinjai',
+            'Kabupaten Luwu',
+        ];
+
+        foreach ($data as $name) {
         Subject::firstOrCreate(
-            ['name' => 'Kabupaten Testing'], // Condition to check if record exists
-            ['name' => 'Kabupaten Testing']  // Values to create if it doesn't exist
+            ['name' => $name], // Condition to check if record exists
+            ['name' => $name]  // Values to create if it doesn't exist
         );
+        }
     }
 }
