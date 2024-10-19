@@ -16,4 +16,9 @@ class Subject extends Model
     protected $casts = [
 
     ];
+
+    // public function indicators()
+    // {
+    //     return $this->hasMany(Indicator::class);
+    // }
 }

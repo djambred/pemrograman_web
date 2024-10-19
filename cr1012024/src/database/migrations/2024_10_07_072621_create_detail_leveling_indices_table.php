@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('leveling_index_id');
             $table->longText('detail')->nullable();
             $table->longText('description')->nullable();
+            $table->longText('criteria_evidence')->nullable();
             $table->timestamps();
         });
     }

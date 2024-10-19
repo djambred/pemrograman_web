@@ -40,10 +40,10 @@ class RecomendationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('indicator.name')->label('Indicator'),
-                Tables\Columns\TextColumn::make('indexLeveling.name')->label('Level'),
-                Tables\Columns\TextColumn::make('detailLevelingIndex.detail')->label('Detail'),
-                Tables\Columns\TextColumn::make('recommend')->searchable(),
+                Tables\Columns\TextColumn::make('indicator.name')->label('Indicator')->wrap(),
+                Tables\Columns\TextColumn::make('indexLeveling.name')->label('Level')->wrap(),
+                Tables\Columns\TextColumn::make('detailLevelingIndex.detail')->label('Detail')->wrap(),
+                Tables\Columns\TextColumn::make('recommend')->searchable()->wrap(),
             ])
             ->filters([
 

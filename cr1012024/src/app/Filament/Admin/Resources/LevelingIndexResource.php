@@ -38,8 +38,8 @@ class LevelingIndexResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('indicator.name')->label('Indicator'),
-                Tables\Columns\TextColumn::make('name')->searchable(),
+                Tables\Columns\TextColumn::make('indicator.name')->label('Indicator')->wrap(),
+                Tables\Columns\TextColumn::make('name')->searchable()->wrap(),
             ])
             ->filters([
 
